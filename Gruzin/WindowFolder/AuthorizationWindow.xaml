@@ -1,0 +1,69 @@
+﻿<Window x:Class="Gruzin.WindowFolder.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gruzin.WindowFolder"
+        mc:Ignorable="d"
+        Title="AuthorizationWindow" 
+        Height="550" Width="400"
+        MaxHeight="550" MaxWidth="400"
+        MinHeight="550" MinWidth="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize"
+        Background="Transparent">
+    <Border CornerRadius="19"
+            MouseDown="Border_MouseDown">
+        <Border.Background>
+            <ImageBrush ImageSource="/ResourceFolder/ImageFolder/Gruzin.jpg"/>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Blue" 
+                    BorderThickness="1"
+                    Margin="70 7"
+                    CornerRadius="5"
+                   Grid.Row="2">
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="textEmail" MouseDown="textEmail_MouseDown" Text="Введите логин" Style="{StaticResource textHint}" 
+                               VerticalAlignment="Center" FontSize="18"/>
+                    <TextBox Name="txtEmail" TextChanged="txtEmail_TextChanged" Style="{StaticResource textBox}" 
+                            Background="Transparent"/>
+                </Grid>
+            </Border>
+
+            <Border BorderBrush="Blue"
+                    BorderThickness="1"
+                    Margin="70 7" CornerRadius="5"
+                    Grid.Row="4">
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Введите пароль" Style="{StaticResource textHint}" FontSize="18" VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="passwordBox" PasswordChanged="passwordBox_PasswordChanged" Style="{StaticResource textBox}" Background="Transparent"/>
+                </Grid>
+            </Border>
+            <Button Grid.Row="6" 
+                    Style="{StaticResource mainButton}"
+                    Content="Войти"
+                    x:Name="LohInBtn"
+                    Click="LohInBtn_Click"/>
+        </Grid>
+    </Border>
+</Window>
