@@ -17,5 +17,8 @@ namespace Gruzin.ClassFolder
         public static PageFolder.DirectorFolder.ListStaffPage ListStaffPage;
 
         public static PageFolder.AdminFolder.ListUserPage ListUserPage1;
+
+        public static PageFolder.DirectorFolder.ListCoursePage ListCoursesPage1;
+
     }
 }

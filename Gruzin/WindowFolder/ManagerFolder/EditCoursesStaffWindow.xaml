@@ -9,6 +9,7 @@
         MaxHeight="450" MaxWidth="450"
         MinHeight="450" MinWidth="450"
         WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Border Background="White"
             CornerRadius="10"

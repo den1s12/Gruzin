@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gruzin.WindowFolder.AdminFolder"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Добавление пользователя" 
+        Height="450" Width="450"
+        MaxHeight="450" MaxWidth="450"
+        MinHeight="450" MinWidth="450"
+        WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        <Border Background="White"
+            CornerRadius="10"
+            MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Добавление пользователя"
+                       Style="{StaticResource Text_Style}"
+                       Foreground="Black"
+                       FontWeight="Bold"
+                       FontSize="20" Margin="90,0,0,0"/>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="1">
+                <TextBlock Text="Логин"
+                           Style="{StaticResource Text_Style}"
+                           Foreground="Black"/>
+                <TextBox x:Name="LoginTb"
+                         Width="220" Margin="20,10,10,10"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="3">
+                <TextBlock Text="Пароль"
+                           Style="{StaticResource Text_Style}"
+                           Foreground="Black"
+                           Margin="70 0 0 0"/>
+                <TextBox x:Name="PasswordTb"
+                         Width="220"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="5">
+                <TextBlock Text="Роль"
+                           Style="{StaticResource Text_Style}"
+                           Foreground="Black"
+                           Margin="70 0 0 0"/>
+                <ComboBox Width="220"
+                          Height="35"
+                          x:Name="RoleCB"
+                          SelectedItem="{Binding Role}"
+                  DisplayMemberPath="NameRole" 
+                  SelectedValuePath="IdRole" Margin="30,12,12,12"/>
+            </StackPanel>
+            <Button Grid.Row="7"
+                    x:Name="BackBtn"
+                    Click="BackBtn_Click"
+                    Content="Назад"
+                    Style="{StaticResource mainButton}"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="10"/>
+            <Button Grid.Row="7"
+                    Content="Добавить"
+                    Style="{StaticResource mainButton}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="10"
+                    x:Name="AddUserBtn"
+                    Click="AddUserBtn_Click"
+                    Width="250"/>
+        </Grid>
+    </Border>
 </Window>

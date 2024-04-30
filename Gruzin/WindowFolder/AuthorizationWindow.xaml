@@ -11,6 +11,7 @@
         MinHeight="550" MinWidth="400"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" 
         Background="Transparent">
     <Border CornerRadius="19"
             MouseDown="Border_MouseDown">
@@ -31,7 +32,7 @@
             </Grid.RowDefinitions>
             <Border BorderBrush="Blue" 
                     BorderThickness="1"
-                    Margin="70 7"
+                    Margin="70,10,70,7"
                     CornerRadius="5"
                    Grid.Row="2">
                 <Grid Margin="7 9">
@@ -45,7 +46,12 @@
                             Background="Transparent"/>
                 </Grid>
             </Border>
-
+            
+            <Button Content="❌"
+                x:Name="CloseBtn"
+                Click="CloseBtn_Click"
+                Style="{StaticResource CloseBtn}"/>
+            
             <Border BorderBrush="Blue"
                     BorderThickness="1"
                     Margin="70 7" CornerRadius="5"

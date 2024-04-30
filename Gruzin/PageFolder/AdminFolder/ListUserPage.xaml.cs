@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gruzin.ClassFolder;
 using Gruzin.DataFolder;
+using Gruzin.WindowFolder.AdminFolder;
 
 namespace Gruzin.PageFolder.AdminFolder
 {
@@ -43,12 +44,34 @@ namespace Gruzin.PageFolder.AdminFolder
         }
         private void DeleteCB_Click(object sender, RoutedEventArgs e)
         {
+            User user = CoursesDT.SelectedItem as User;
+            if (CoursesDT.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Выберите пользователя" +
+                    " для удаления");
+            }
+            else
+            {
+                if (MBClass.QuestionMB("Удалить " +
+                    $"пользователя " +
+                    $"{user.IdUser}?"))
+                {
+                    DBEntities.GetContext().User
+                        .Remove(CoursesDT.SelectedItem as User);
+                    DBEntities.GetContext().SaveChanges();
 
+                    MBClass.InfoMB("Пользователь удален");
+                    CoursesDT.ItemsSource = DBEntities.GetContext()
+                        .User.ToList().OrderBy(u => u.IdUser);
+                }
+
+            }
         }
 
         private void EditCB_Click(object sender, RoutedEventArgs e)
         {
-
+            new EditUserWindow(CoursesDT.SelectedItem as User).ShowDialog();
+            UpdateList();
         }
 
     }

@@ -53,7 +53,7 @@
           <Property Name="MobilePhoneStaff" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="EmailStaff" Type="nvarchar" MaxLength="75" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="PhotoStaff" Type="varbinary(max)" Nullable="false" />
+          <Property Name="PhotoStaff" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -280,7 +280,7 @@
           <Property Name="MobilePhoneStaff" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailStaff" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="CoursesStaff" Relationship="Self.FK_CoursesStaff_Staff" FromRole="Staff" ToRole="CoursesStaff" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
         </EntityType>

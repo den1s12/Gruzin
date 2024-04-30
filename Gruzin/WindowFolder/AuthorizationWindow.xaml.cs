@@ -91,15 +91,15 @@ namespace Gruzin.WindowFolder
                         switch (user.IdRole)
                         {
                             case 1:
-                                new MenuManagerWindow().Show();
+                                new ManuAdminWindow().Show();
                                 Close();
                                 break;
-                                       case 2:
+                            case 2:
                                 new MenuDirecotrWindow().Show();
                                 Close();
                                 break;
                             case 3:
-                                new ManuAdminWindow().Show();
+                                new MenuManagerWindow().Show();
                                 Close();
                                 break;
                         }
@@ -117,6 +117,11 @@ namespace Gruzin.WindowFolder
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MBClass.ExitMB();
         }
     }
 }

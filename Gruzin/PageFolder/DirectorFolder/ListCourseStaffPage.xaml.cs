@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Gruzin.ClassFolder;
 using Gruzin.DataFolder;
+using Gruzin.WindowFolder.ManagerFolder;
 
 namespace Gruzin.PageFolder.DirectorFolder
 {
@@ -42,17 +44,39 @@ namespace Gruzin.PageFolder.DirectorFolder
 
         private void EditCM_Click(object sender, RoutedEventArgs e)
         {
-
+            new EditCoursesStaffWindow(StAFFT.SelectedItem as CoursesStaff).ShowDialog();
+            UpdateList();
         }
 
         private void DeleteCM_Click(object sender, RoutedEventArgs e)
         {
+            CoursesStaff coursesStaff = StAFFT.SelectedItem as CoursesStaff;
+            if (StAFFT.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Выберите сотрудника" +
+                    " для удаления");
+            }
+            else
+            {
+                if (MBClass.QuestionMB("Удалить " +
+                    $"сотрудника " +
+                    $"{coursesStaff.IdCourses}?"))
+                {
+                    DBEntities.GetContext().CoursesStaff
+                        .Remove(StAFFT.SelectedItem as CoursesStaff);
+                    DBEntities.GetContext().SaveChanges();
 
+                    MBClass.InfoMB("Сотрудник удален");
+                    StAFFT.ItemsSource = DBEntities.GetContext()
+                        .CoursesStaff.ToList().OrderBy(u => u.IdCourses);
+                }
+
+            }
         }
 
         private void AddCourseStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new AddCoursesStaffWindow().Show();
         }
     }
 }

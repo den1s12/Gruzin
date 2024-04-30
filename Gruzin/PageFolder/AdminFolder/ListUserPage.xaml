@@ -55,20 +55,20 @@
                   CellStyle="{StaticResource DataGridCellStyle1}">
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Редактирование даннных о курсах"
+                    <MenuItem Header="Редактирование пользователя"
                               x:Name="EditCB"
                               Click="EditCB_Click"/>
                     <Separator/>
-                    <MenuItem Header="Удаление курса"
+                    <MenuItem Header="Удаление пользователя"
                               x:Name="DeleteCB"
                               Click="DeleteCB_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding IdCourses}"/>
+                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding IdUser}"/>
                 <DataGridTextColumn Header="Логин" Binding="{Binding LoginUser}" IsReadOnly="True" Width="*" />
                 <DataGridTextColumn Header="Пароль" Binding="{Binding PasswordUser}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Роль" Binding="{Binding Role.PasswordUser}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.NameRole}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

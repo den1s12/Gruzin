@@ -20,7 +20,7 @@
         <TextBox x:Name="SearchDT"
                  Foreground="Black" Padding="4,0" 
                  TextChanged="SearchDT_TextChanged"
-                 Height="40" FontSize="16" Cursor="Hand">
+                 Height="40" FontSize="16" Cursor="Hand" Margin="10,15,10,15">
             <TextBox.Template>
                 <ControlTemplate TargetType="TextBox">
                     <Grid>

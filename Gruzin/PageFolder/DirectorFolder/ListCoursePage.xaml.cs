@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gruzin.ClassFolder;
 using Gruzin.DataFolder;
+using Gruzin.WindowFolder.DirectorFolder;
 
 namespace Gruzin.PageFolder.DirectorFolder
 {
@@ -26,6 +27,7 @@ namespace Gruzin.PageFolder.DirectorFolder
         {
             Courses courses = new Courses();
             InitializeComponent();
+            VariableClass.ListCoursesPage1 = this;
             UpdateList();
         }
 
@@ -43,17 +45,39 @@ namespace Gruzin.PageFolder.DirectorFolder
 
         private void EditCB_Click(object sender, RoutedEventArgs e)
         {
-
+            new EditCoursesWindow(CoursesDT.SelectedItem as Courses).ShowDialog();
+            UpdateList();
         }
 
         private void DeleteCB_Click(object sender, RoutedEventArgs e)
         {
+            Courses courses = CoursesDT.SelectedItem as Courses;
+            if (CoursesDT.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Выберите курс" +
+                    " для удаления");
+            }
+            else
+            {
+                if (MBClass.QuestionMB("Удалить " +
+                    $"курс " +
+                    $"{courses.NameCourses}?"))
+                {
+                    DBEntities.GetContext().Courses
+                        .Remove(CoursesDT.SelectedItem as Courses);
+                    DBEntities.GetContext().SaveChanges();
 
+                    MBClass.InfoMB("Курс удален");
+                    CoursesDT.ItemsSource = DBEntities.GetContext()
+                        .Courses.ToList().OrderBy(u => u.IdCourses);
+                }
+
+            }
         }
 
         private void AddCourseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new AddCoursesWindow().Show();
         }
     }
 }

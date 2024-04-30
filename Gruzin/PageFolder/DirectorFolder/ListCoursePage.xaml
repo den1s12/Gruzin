@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Gruzin.PageFolder.DirectorFolder"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Спиок курсов">
+      Title="Спиcок курсов">
 
     <Grid>
         <Grid.RowDefinitions>

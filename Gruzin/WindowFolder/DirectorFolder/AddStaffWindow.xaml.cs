@@ -47,7 +47,7 @@ namespace Gruzin.WindowFolder.DirectorFolder
             });
             DBEntities.GetContext().SaveChanges();
             MBClass.InfoMB("Сотрудник успешно добавлен");
-            if (VariableClass.ListStaffPage != null) VariableClass.ListStaffPage.UpdateList();
+            if (VariableClass.ListUserPage1 != null) VariableClass.ListStaffPage.UpdateList();
             Close();
         }
 

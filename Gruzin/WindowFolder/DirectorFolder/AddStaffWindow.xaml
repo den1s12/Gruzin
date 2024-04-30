@@ -10,6 +10,7 @@
         MaxHeight="530" MaxWidth="700"
         MinHeight="530" MinWidth="700"
         WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Border Background="White"
             CornerRadius="10"
@@ -57,7 +58,7 @@
             <Label Content="Ф.И.О. Сотрудника" Style="{DynamicResource LabelNormalStyle}"
                        Grid.Row="3" Grid.Column="1"/>
             <TextBox x:Name="FIOTb"
-                    Grid.Row="2" Grid.Column="1"
+                    Grid.Row="2" Grid.Column="1" Margin="10,23,12,22"
                     />
             <TextBlock Text="Номер телефона" Style="{DynamicResource Text_Style}"
                        Foreground="Black"

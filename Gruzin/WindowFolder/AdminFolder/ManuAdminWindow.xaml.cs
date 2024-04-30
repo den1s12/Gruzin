@@ -43,6 +43,7 @@ namespace Gruzin.WindowFolder.AdminFolder
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
+            new AuthorizationWindow().Show();
             Close();      
         }
 

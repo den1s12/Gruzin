@@ -9,6 +9,7 @@
         MaxHeight="530" MaxWidth="700"
         MinHeight="530" MinWidth="700"
         WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Border Background="White"
             CornerRadius="10"
@@ -33,7 +34,7 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Добавление сотрудника"
+            <TextBlock Text="Редактирование сотрудника"
                        Style="{StaticResource Text_Style}"
                        Grid.ColumnSpan="3" Foreground="Black"
                        HorizontalAlignment="Center"
