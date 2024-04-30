@@ -33,7 +33,7 @@ namespace Gruzin.WindowFolder.DirectorFolder
             DBEntities.GetContext().Courses.Add(new Courses()
             {
                 NameCourses = NameCoursesTb.Text,
-                CountCoursesPayment = Int32.Parse(CountPaymentTb.Text),
+                CountCoursesPayment = Decimal.Parse(CountPaymentTb.Text),
                 IdTypeOfCourses = Int32.Parse(TypesCoursesCb.SelectedValue.ToString())
             });
             DBEntities.GetContext().SaveChanges();

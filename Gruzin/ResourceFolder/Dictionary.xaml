@@ -309,6 +309,7 @@
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand"/>
     </Style>
 
     <Style x:Key="mainButton" TargetType="{x:Type Button}">

@@ -35,23 +35,36 @@ namespace Gruzin.WindowFolder.DirectorFolder
 
         private void EditCourseBtn_Click(object sender, RoutedEventArgs e)
         {
+                try
+                {
+                    courses = DBEntities.GetContext().Courses
+                       .FirstOrDefault(u => u.IdCourses == courses.IdCourses);
+                    courses.NameCourses = NameCoursesTb.Text;
+                    courses.IdTypeOfCourses = Int32.Parse(
+                       TypesCoursesCb.SelectedValue.ToString());
+                    UpdateList();    
+                //courses.CountCoursesPayment = Convert.ToString(CountPaymentTb.Text);
+
+                    DBEntities.GetContext().SaveChanges();
+                    MBClass.InfoMB("Данные успешно отредактированы");
+                    if (VariableClass.ListCoursesPage1 != null) VariableClass.ListCoursesPage1.UpdateList();
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                }          
+        }
+        public void UpdateList()
+        {
             try
             {
-                courses = DBEntities.GetContext().Courses
-                   .FirstOrDefault(u => u.IdCourses == courses.IdCourses);
-                courses.NameCourses = NameCoursesTb.Text;
-                courses.IdTypeOfCourses = Int32.Parse(
-                   TypesCoursesCb.SelectedValue.ToString());
-                courses.CountCoursesPayment = Int32.Parse(CountPaymentTb.Text);
+                string input = CountPaymentTb.Text.Trim();
+                input = input.Replace(",", ".");
 
-                DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Данные успешно отредактированы");
-                if (VariableClass.ListCoursesPage1 != null) VariableClass.ListCoursesPage1.UpdateList();
-                Close();
+                courses.CountCoursesPayment = decimal.Parse(input);
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
             }
         }
 

@@ -42,8 +42,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="textEmail" MouseDown="textEmail_MouseDown" Text="Введите логин" Style="{StaticResource textHint}" 
                                VerticalAlignment="Center" FontSize="18"/>
-                    <TextBox Name="txtEmail" TextChanged="txtEmail_TextChanged" Style="{StaticResource textBox}" 
-                            Background="Transparent"/>
+                    <TextBox Name="txtEmail" TextChanged="txtEmail_TextChanged" 
+                             Style="{StaticResource textBox}" 
+                             Background="Transparent"
+                             VerticalContentAlignment="Center"/>
                 </Grid>
             </Border>
             
@@ -62,7 +64,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Введите пароль" Style="{StaticResource textHint}" FontSize="18" VerticalAlignment="Center"/>
-                    <PasswordBox x:Name="passwordBox" PasswordChanged="passwordBox_PasswordChanged" Style="{StaticResource textBox}" Background="Transparent"/>
+                    <PasswordBox x:Name="passwordBox" PasswordChanged="passwordBox_PasswordChanged" Style="{StaticResource textBox}" Background="Transparent"  VerticalContentAlignment="Center"/>
                 </Grid>
             </Border>
             <Button Grid.Row="6" 
