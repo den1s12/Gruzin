@@ -46,9 +46,24 @@ namespace Gruzin.PageFolder.DirectorFolder
 
         private void EditEM_Click(object sender, RoutedEventArgs e)
         {
-            new EditStaffWindow(ListStaffLb.SelectedItem as Staff).ShowDialog();
-            UpdateList();
+            if (ListStaffLb.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Вы не выбрали строку");
+            }
+            else
+            {
+                try
+                {
+                    new EditStaffWindow(ListStaffLb.SelectedItem as Staff).ShowDialog();
+                    UpdateList();
+                }
+                catch(Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
+            }
         }
+
 
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {

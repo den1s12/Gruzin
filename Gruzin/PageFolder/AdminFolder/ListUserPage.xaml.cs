@@ -70,8 +70,22 @@ namespace Gruzin.PageFolder.AdminFolder
 
         private void EditCB_Click(object sender, RoutedEventArgs e)
         {
-            new EditUserWindow(CoursesDT.SelectedItem as User).ShowDialog();
-            UpdateList();
+            if (CoursesDT.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Вы не выбрали строку");
+            }
+            else
+            {
+                try
+                {
+                    new EditUserWindow(CoursesDT.SelectedItem as User).ShowDialog();
+                    UpdateList();
+                }
+                catch(Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }   
+            }
         }
 
     }

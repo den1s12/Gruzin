@@ -45,8 +45,22 @@ namespace Gruzin.PageFolder.DirectorFolder
 
         private void EditCB_Click(object sender, RoutedEventArgs e)
         {
-            new EditCoursesWindow(CoursesDT.SelectedItem as Courses).ShowDialog();
-            UpdateList();
+            if (CoursesDT.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Вы не выбрали строку");
+            }
+            else
+            {
+                try
+                {
+                    new EditCoursesWindow(CoursesDT.SelectedItem as Courses).ShowDialog();
+                    UpdateList();
+                }
+                catch (Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
+            }
         }
 
         private void DeleteCB_Click(object sender, RoutedEventArgs e)
